@@ -6,7 +6,7 @@ steps:
   image: plugins/slack
   settings:
     webhook: https://hooks.slack.com/services/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
-    channel: cicd
+    channel: 	all-imastudent
     template: >
         Build {{build.number}} of {{build.branch}} started. {{build.link}}
 - name: build
@@ -33,7 +33,7 @@ steps:
   image: plugins/slack
   settings:
     webhook: https://hooks.slack.com/services/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
-    channel: cicd
+    channel: 	all-imastudent
     template: >
       {{#success build.status}}
         Build {{build.number}} of {{build.branch}} successful. {{build.link}}
