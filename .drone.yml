@@ -19,9 +19,9 @@ steps:
     repo: wunduniik/node-microservice
     auto_tag: true
     username:
-      from_secret: wunduniik
+      from_secret: docker_username
     password:
-      from_secret: Meyveliyogurt3221*
+      from_secret: docker_password
 - name: deploy
   image: docker
   commands:
