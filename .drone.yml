@@ -1,1 +1,9 @@
+kind: pipeline
+name: default
 
+steps:
+- name: test
+  image: node:17
+  commands:
+  - npm install
+  - npm test
