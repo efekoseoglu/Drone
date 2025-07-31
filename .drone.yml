@@ -20,8 +20,7 @@ steps:
   - sh ./.drone/deploy.sh
   volumes:
   - name: dockersock
-    path: /var/run/docker.sock
-  privileged: true  
+    path: /var/run/docker.sock 
 volumes:
 - name: dockersock
   path: /var/run/docker.sock
