@@ -2,7 +2,7 @@ kind: pipeline
 name: default
 steps:
 - name: build
-  image: node:9.8.0
+  image: node:18
   commands:
   - sh ./.drone/build.sh
 - name: publish
