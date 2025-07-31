@@ -9,7 +9,7 @@ steps:
     template: >
         Build {{build.number}} of {{build.branch}} started. {{build.link}}
 - name: build
-  image: node:18
+  image: node:9.8.0
   commands:
   - sh ./.drone/build.sh
 - name: publish
