@@ -24,5 +24,4 @@ steps:
   privileged: true  
 volumes:
 - name: dockersock
-  host:
-    path: /var/run/docker.sock
+  path: /var/run/docker.sock
