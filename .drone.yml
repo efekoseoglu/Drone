@@ -1,13 +1,6 @@
 kind: pipeline
 name: default
 steps:
-- name: start-notify
-  image: plugins/slack
-  settings:
-    webhook: https://hooks.slack.com/services/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
-    channel: cicd
-    template: >
-        Build {{build.number}} of {{build.branch}} started. {{build.link}}
 - name: build
   image: node:9.8.0
   commands:
@@ -28,17 +21,6 @@ steps:
   volumes:
   - name: docker
     path: /var/run/docker.sock
-- name: end-notify
-  image: plugins/slack
-  settings:
-    webhook:  https://hooks.slack.com/services/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
-    channel: 	cicd
-    template: >
-      {{#success build.status}}
-        Build {{build.number}} of {{build.branch}} successful. {{build.link}}
-      {{else}}
-        Build {{build.number}} of {{build.branch}} failed. Please fix!. {{build.link}}
-      {{/success}}
 volumes:
 - name: docker
   path: /var/run/docker.sock
