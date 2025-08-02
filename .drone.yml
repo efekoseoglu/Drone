@@ -1,10 +1,13 @@
 kind: pipeline
+type: docker
 name: default
+
 steps:
 - name: build
   image: node:18
   commands:
   - sh ./.drone/build.sh
+
 - name: publish
   image: plugins/docker
   settings:
@@ -14,6 +17,7 @@ steps:
       from_secret: docker_username
     password:
       from_secret: docker_password
+
 - name: deploy
   image: docker:20.10
   volumes:
@@ -21,8 +25,8 @@ steps:
     path: /var/run/docker.sock
   commands:
   - sh ./.drone/deploy.sh
-  
+
 volumes:
 - name: dockersock
   host:
-  path: /var/run/docker.sock
+    path: /var/run/docker.sock
