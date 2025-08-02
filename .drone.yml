@@ -15,12 +15,13 @@ steps:
     password:
       from_secret: docker_password
 - name: deploy
-  image: docker
-  commands:
-  - sh ./.drone/deploy.sh
+  image: docker:20.10
   volumes:
   - name: dockersock
-    path: /var/run/docker.sock 
+    path: /var/run/docker.sock
+  commands:
+  - sh ./.drone/deploy.sh
+  
 volumes:
 - name: dockersock
   path: /var/run/docker.sock
